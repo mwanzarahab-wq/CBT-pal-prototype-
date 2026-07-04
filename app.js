@@ -5,7 +5,7 @@ const {
   Home, ListChecks, MessageCircle, NotebookPen, CalendarCheck2, BookOpenText,
   LifeBuoy, Send, Loader2, AlertTriangle, ChevronDown, ChevronRight, Plus, X,
   Sunrise, Phone, Clock, CheckCircle2, Circle, Sparkles, MapPin 
-} = lucide;
+} = LucideReact;
 
 /* ---------------------------------------------------------------------- */
 /* Tokens                                                                 */
