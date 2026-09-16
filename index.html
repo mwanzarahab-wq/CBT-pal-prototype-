@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>CBT Pal</title>
+  <meta name="description" content="An anxiety navigation companion for Zambian university students.">
+  <meta name="theme-color" content="#12A594">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CBT Pal">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html, body { height: 100%; }
+    body { background-color: #FAF8F4; font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: #1C1B19; }
+    button { transition: transform 0.1s ease, filter 0.1s ease; font-family: inherit; }
+    button:active:not(:disabled) { transform: scale(0.97); filter: brightness(0.96); }
+    input:focus { outline: none; border-color: #12A594 !important; }
+    #boot-error { display:none; padding:16px; margin:16px; background:#FBEAE6; border:1px solid #C4553F; border-radius:10px; color:#7a2c1f; font-size:13px; line-height:1.5; white-space:pre-wrap; font-family: ui-monospace, monospace; }
+    ::-webkit-scrollbar { width: 0; height: 0; }
+  </style>
+
+  <script>
+    window.__bootOk = false;
+    window.addEventListener("error", function (e) {
+      if (window.__bootOk) return;
+      var el = document.getElementById("boot-error");
+      if (el) {
+        el.style.display = "block";
+        el.textContent = "Boot error: " + (e.message || (e.error && e.error.message) || "unknown error") +
+          (e.filename ? ("\n  at " + e.filename + ":" + e.lineno + ":" + e.colno) : "");
+      }
+    });
+  </script>
+</head>
+<body>
+  <div id="boot-error"></div>
+  <div id="root"></div>
+
+  <script src="app.js"></script>
+  <script>window.__bootOk = true;</script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/sw.js").catch(() => {});
+      });
+    }
+  </script>
+</body>
+</html>
